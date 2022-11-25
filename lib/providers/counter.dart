@@ -1,6 +1,4 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'dart:ui';
-
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:state_notifier/state_notifier.dart';
@@ -18,7 +16,7 @@ class CounterState extends Equatable {
 
   @override
   // TODO: implement props
-  List<Object?> get props => throw UnimplementedError();
+  List<Object?> get props => [counter];
 
   @override
   bool get stringify => true;
@@ -37,6 +35,8 @@ class Counter extends StateNotifier<CounterState> with LocatorMixin {
 
   void increment() {
     print(read<BgColor>().state);
+    print(state.toString());
+    print(state.props);
     Color currentColor = read<BgColor>().state.color;
 
     if (currentColor == Colors.black) {
